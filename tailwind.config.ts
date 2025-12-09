@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
+        mono: ['Space Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -26,6 +27,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -60,8 +62,13 @@ export default {
         },
         status: {
           alive: "hsl(var(--status-alive))",
+          "alive-glow": "hsl(var(--status-alive-glow))",
           warning: "hsl(var(--status-warning))",
+          "warning-glow": "hsl(var(--status-warning-glow))",
           critical: "hsl(var(--status-critical))",
+          "critical-glow": "hsl(var(--status-critical-glow))",
+          emergency: "hsl(var(--status-emergency))",
+          "emergency-glow": "hsl(var(--status-emergency-glow))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -101,8 +108,24 @@ export default {
           "100%": { opacity: "1", transform: "scale(1)" },
         },
         "slide-in-right": {
-          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "0%": { opacity: "0", transform: "translateX(30px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        "slide-in-left": {
+          "0%": { opacity: "0", transform: "translateX(-30px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        "rotate-in": {
+          "0%": { opacity: "0", transform: "rotate(-10deg) scale(0.9)" },
+          "100%": { opacity: "1", transform: "rotate(0deg) scale(1)" },
+        },
+        "typewriter": {
+          "0%": { width: "0" },
+          "100%": { width: "100%" },
+        },
+        "blink": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
         },
       },
       animation: {
@@ -111,7 +134,11 @@ export default {
         "fade-in": "fade-in 0.6s ease-out forwards",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out forwards",
-        "slide-in-right": "slide-in-right 0.5s ease-out forwards",
+        "slide-in-right": "slide-in-right 0.6s ease-out forwards",
+        "slide-in-left": "slide-in-left 0.6s ease-out forwards",
+        "rotate-in": "rotate-in 0.5s ease-out forwards",
+        "typewriter": "typewriter 2s steps(30) forwards",
+        "blink": "blink 1s step-end infinite",
       },
     },
   },
