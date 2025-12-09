@@ -1,57 +1,73 @@
 import { FeatureCard } from "@/components/FeatureCard";
-import { Shield, Heart, Users, Package, Lock, Clock } from "lucide-react";
+import { Shield, Heart, Users, Package, Zap, Clock } from "lucide-react";
 
 export function FeaturesSection() {
   const features = [
     {
       icon: Shield,
       title: "Zero-Knowledge Vaults",
-      description: "Your data is encrypted before it leaves your device. We never see your secrets—only you hold the keys.",
+      description: "Your data is encrypted on your device before it leaves. We store only encrypted blobs—we never see your secrets, and never hold your keys.",
+      accentColor: "primary",
     },
     {
       icon: Heart,
       title: "Heartbeat Protocol",
-      description: "A gentle check-in system that monitors your activity. No countdowns, just a living pulse that ensures continuity.",
+      description: "A gentle breathing pulse that monitors your activity. Check in periodically—no countdown clocks, just a living system ensuring continuity.",
+      accentColor: "alive",
     },
     {
       icon: Users,
       title: "Lazarus Verification",
-      description: "Multi-signature consensus from trusted verifiers prevents false positives and ensures accuracy.",
+      description: "Multi-signature consensus from trusted verifiers prevents false triggers. Human confirmation required before any transfer begins.",
+      accentColor: "accent",
     },
     {
       icon: Package,
       title: "Granular Packets",
-      description: "Segment your assets into private packets. Your spouse gets financials, your partner gets business keys.",
+      description: "Segment your digital life into private packets. Financial keys to your spouse, business credentials to your partner—privacy between beneficiaries.",
+      accentColor: "warning",
     },
     {
-      icon: Lock,
-      title: "AES-256 Encryption",
-      description: "Military-grade encryption protects every piece of data. Your legacy is as secure as a nuclear bunker.",
+      icon: Zap,
+      title: "Emergency Rapid Release",
+      description: "For urgent scenarios, bypass standard wait times with a Panic Code. Includes a 6-hour veto window to prevent unauthorized access.",
+      accentColor: "emergency",
     },
     {
       icon: Clock,
-      title: "Grace Periods",
-      description: "Configurable grace periods give you time to respond. False alarms are prevented at every step.",
+      title: "Configurable Grace Periods",
+      description: "Set your own timelines. Adjustable check-in intervals and grace periods ensure the system adapts to your lifestyle, not the other way around.",
+      accentColor: "primary",
     },
   ];
 
   return (
-    <section id="features" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+    <section id="features" className="py-28 md:py-36 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 
-            className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4 opacity-0 animate-fade-in"
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span 
+            className="inline-block text-sm text-primary uppercase tracking-widest font-medium mb-4 opacity-0 animate-fade-in"
             style={{ animationFillMode: "forwards" }}
           >
-            Built for Trust, Designed for Peace
-          </h2>
-          <p 
-            className="text-muted-foreground text-lg opacity-0 animate-fade-in"
+            Core Features
+          </span>
+          <h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6 opacity-0 animate-fade-in"
             style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
           >
-            Every feature is engineered to protect what matters most—your digital legacy and your peace of mind.
+            Built for Trust,<br />
+            <span className="text-gradient-primary">Designed for Peace</span>
+          </h2>
+          <p 
+            className="text-muted-foreground text-lg md:text-xl leading-relaxed opacity-0 animate-fade-in"
+            style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
+          >
+            Every feature is engineered to protect what matters most—your digital legacy 
+            and your peace of mind. No compromises, no shortcuts.
           </p>
         </div>
 
@@ -60,7 +76,7 @@ export function FeaturesSection() {
             <FeatureCard 
               key={feature.title}
               {...feature}
-              delay={150 + index * 100}
+              delay={200 + index * 100}
             />
           ))}
         </div>

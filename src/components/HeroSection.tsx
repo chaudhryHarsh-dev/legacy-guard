@@ -1,38 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { HeartbeatRing } from "@/components/HeartbeatRing";
-import { ArrowRight, Lock, Users, Zap } from "lucide-react";
+import { ArrowRight, Lock, Users, Zap, Shield, Sparkles } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 gradient-hero opacity-50" />
-      <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-status-alive/5 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden noise-overlay">
+      {/* Multi-layer Background Effects */}
+      <div className="absolute inset-0 gradient-hero" />
+      <div className="absolute inset-0 gradient-mesh opacity-60" />
+      <div className="absolute inset-0 cyber-grid opacity-30" />
+      
+      {/* Floating Orbs */}
+      <div className="floating-orb w-96 h-96 bg-primary/20 top-1/4 -left-48" style={{ animationDelay: "0s" }} />
+      <div className="floating-orb w-80 h-80 bg-accent/15 bottom-1/4 -right-40" style={{ animationDelay: "5s" }} />
+      <div className="floating-orb w-64 h-64 bg-status-alive/10 top-1/2 left-1/3" style={{ animationDelay: "10s" }} />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div 
-              className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full opacity-0 animate-fade-in"
+              className="inline-flex items-center gap-3 glass-card px-5 py-2.5 rounded-full opacity-0 animate-fade-in"
               style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
             >
-              <span className="w-2 h-2 rounded-full bg-status-alive animate-pulse" />
-              <span className="text-sm text-muted-foreground">Zero-Knowledge Encrypted</span>
+              <div className="flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="w-1.5 h-1.5 rounded-full bg-status-alive animate-pulse" />
+              </div>
+              <span className="text-sm text-muted-foreground">Zero-Knowledge Encrypted • Military-Grade Security</span>
             </div>
 
             <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight opacity-0 animate-fade-in"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] opacity-0 animate-fade-in"
               style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
             >
-              <span className="text-gradient">Your Digital Legacy,</span>
-              <br />
-              <span className="text-gradient-primary">Secured Forever</span>
+              <span className="text-gradient block">Your Digital Legacy,</span>
+              <span className="text-gradient-primary block mt-2">Secured Forever</span>
             </h1>
 
             <p 
-              className="text-lg text-muted-foreground max-w-xl leading-relaxed opacity-0 animate-fade-in"
+              className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed opacity-0 animate-fade-in"
               style={{ animationDelay: "300ms", animationFillMode: "forwards" }}
             >
               Don't let your digital wealth become digital dust. The Final Transfer ensures your 
@@ -44,9 +51,9 @@ export function HeroSection() {
               className="flex flex-wrap gap-4 opacity-0 animate-fade-in"
               style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
             >
-              <Button variant="hero" size="xl">
+              <Button variant="hero" size="xl" className="group">
                 Create Your Vault
-                <ArrowRight className="w-5 h-5 ml-1" />
+                <ArrowRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="glass" size="xl">
                 See How It Works
@@ -55,20 +62,29 @@ export function HeroSection() {
 
             {/* Trust Indicators */}
             <div 
-              className="flex flex-wrap gap-6 pt-4 opacity-0 animate-fade-in"
+              className="grid grid-cols-3 gap-4 pt-6 opacity-0 animate-fade-in"
               style={{ animationDelay: "500ms", animationFillMode: "forwards" }}
             >
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Lock className="w-4 h-4 text-primary" />
-                <span>AES-256 Encryption</span>
+              <div className="flex items-center gap-3 glass-card px-4 py-3 rounded-xl">
+                <Lock className="w-5 h-5 text-primary shrink-0" />
+                <div>
+                  <p className="text-xs text-muted-foreground">Encryption</p>
+                  <p className="text-sm font-semibold text-foreground">AES-256</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Users className="w-4 h-4 text-primary" />
-                <span>Multi-Sig Verification</span>
+              <div className="flex items-center gap-3 glass-card px-4 py-3 rounded-xl">
+                <Users className="w-5 h-5 text-primary shrink-0" />
+                <div>
+                  <p className="text-xs text-muted-foreground">Verification</p>
+                  <p className="text-sm font-semibold text-foreground">Multi-Sig</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Zap className="w-4 h-4 text-primary" />
-                <span>Automated Transfer</span>
+              <div className="flex items-center gap-3 glass-card px-4 py-3 rounded-xl">
+                <Zap className="w-5 h-5 text-primary shrink-0" />
+                <div>
+                  <p className="text-xs text-muted-foreground">Transfer</p>
+                  <p className="text-sm font-semibold text-foreground">Automated</p>
+                </div>
               </div>
             </div>
           </div>
@@ -79,21 +95,36 @@ export function HeroSection() {
             style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
           >
             <div className="relative">
-              {/* Decorative rings */}
+              {/* Decorative outer rings */}
+              <div className="absolute inset-0 scale-[1.8]">
+                <div className="absolute inset-0 rounded-full border border-primary/5 animate-pulse-slow" />
+              </div>
               <div className="absolute inset-0 scale-150">
-                <div className="absolute inset-0 rounded-full border border-primary/10 animate-pulse-slow" />
+                <div className="absolute inset-0 rounded-full border border-primary/10 animate-pulse-slow" style={{ animationDelay: "1s" }} />
               </div>
               <div className="absolute inset-0 scale-125">
-                <div className="absolute inset-0 rounded-full border border-primary/20 animate-pulse-slow" style={{ animationDelay: "1s" }} />
+                <div className="absolute inset-0 rounded-full border border-primary/15 animate-pulse-slow" style={{ animationDelay: "2s" }} />
               </div>
               
               {/* Main Heartbeat Ring */}
-              <HeartbeatRing percentage={82} size={280} strokeWidth={12} />
+              <HeartbeatRing percentage={82} size={300} strokeWidth={14} />
               
               {/* Status Card */}
-              <div className="absolute -bottom-4 -right-4 glass-card px-4 py-3 rounded-xl">
-                <p className="text-xs text-muted-foreground">Next Check-In</p>
-                <p className="text-sm font-semibold text-foreground">24 days remaining</p>
+              <div className="absolute -bottom-6 -right-6 glass-card-elevated px-5 py-4 rounded-2xl animate-float">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-status-alive/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-status-alive" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">Next Check-In</p>
+                    <p className="text-lg font-semibold text-foreground font-serif">24 days</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional floating element */}
+              <div className="absolute -top-4 -left-8 glass-card px-4 py-2.5 rounded-xl animate-float-delayed">
+                <p className="text-xs text-status-alive font-medium">● Vault Active</p>
               </div>
             </div>
           </div>
