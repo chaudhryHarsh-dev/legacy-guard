@@ -31,7 +31,7 @@ const securityFeatures = [
 
 export function SecuritySection() {
   return (
-    <section id="security" className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section id="security" className="py-28 md:py-36 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -39,30 +39,30 @@ export function SecuritySection() {
         }} />
       </div>
       
-      {/* Glow effects - Hidden on mobile for performance */}
-      <div className="hidden md:block absolute top-1/4 right-0 w-96 h-96 bg-status-alive/10 rounded-full blur-3xl" />
-      <div className="hidden md:block absolute bottom-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      {/* Glow effects */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-status-alive/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Content */}
           <div>
-            <div className="mb-8 md:mb-12 text-center lg:text-left">
+            <div className="mb-12">
               <span 
-                className="inline-block text-xs md:text-sm text-primary uppercase tracking-widest font-medium mb-3 md:mb-4 opacity-0 animate-fade-in"
+                className="inline-block text-sm text-primary uppercase tracking-widest font-medium mb-4 opacity-0 animate-fade-in"
                 style={{ animationFillMode: "forwards" }}
               >
                 Pillar 05 — The Heartbeat Protocol
               </span>
               <h2 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6 opacity-0 animate-fade-in"
+                className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6 opacity-0 animate-fade-in"
                 style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
               >
                 Security That<br />
                 <span className="text-gradient-alive">Breathes With You</span>
               </h2>
               <p 
-                className="text-muted-foreground text-base md:text-lg leading-relaxed opacity-0 animate-fade-in"
+                className="text-muted-foreground text-lg leading-relaxed opacity-0 animate-fade-in"
                 style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
               >
                 Unlike countdown clocks that create anxiety, our Heartbeat Protocol visualizes 
@@ -71,7 +71,7 @@ export function SecuritySection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               {securityFeatures.map((feature, index) => {
                 const Icon = feature.icon;
                 const colorClasses: Record<string, string> = {
@@ -85,21 +85,21 @@ export function SecuritySection() {
                   <div 
                     key={feature.title}
                     className={cn(
-                      "glass-card p-4 md:p-5 group hover:border-primary/20 transition-all duration-500",
+                      "glass-card p-5 group hover:border-primary/20 transition-all duration-500",
                       "opacity-0 animate-fade-in-up"
                     )}
                     style={{ animationDelay: `${300 + index * 100}ms`, animationFillMode: "forwards" }}
                   >
                     <div className={cn(
-                      "w-9 h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 transition-colors duration-300",
+                      "w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300",
                       colorClasses[feature.color]
                     )}>
-                      <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-sm md:text-base font-semibold font-serif text-foreground mb-1.5 md:mb-2">
+                    <h3 className="text-base font-semibold font-serif text-foreground mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -115,24 +115,24 @@ export function SecuritySection() {
           >
             <div className="relative">
               {/* Interactive demo with different states */}
-              <div className="grid grid-cols-1 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <div className="flex flex-col items-center">
-                  <HeartbeatRing percentage={85} size={180} strokeWidth={10} />
-                  <p className="mt-3 md:mt-4 text-xs md:text-sm text-muted-foreground text-center">
+                  <HeartbeatRing percentage={85} size={220} strokeWidth={12} />
+                  <p className="mt-4 text-sm text-muted-foreground text-center">
                     Active & Protected
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4 md:gap-6">
+                <div className="grid grid-cols-2 gap-6">
                   <div className="flex flex-col items-center">
-                    <HeartbeatRing percentage={45} size={100} strokeWidth={6} />
-                    <p className="mt-2 md:mt-3 text-[10px] md:text-xs text-muted-foreground text-center">
+                    <HeartbeatRing percentage={45} size={120} strokeWidth={8} />
+                    <p className="mt-3 text-xs text-muted-foreground text-center">
                       Check-In Soon
                     </p>
                   </div>
                   <div className="flex flex-col items-center">
-                    <HeartbeatRing percentage={15} size={100} strokeWidth={6} />
-                    <p className="mt-2 md:mt-3 text-[10px] md:text-xs text-muted-foreground text-center">
+                    <HeartbeatRing percentage={15} size={120} strokeWidth={8} />
+                    <p className="mt-3 text-xs text-muted-foreground text-center">
                       Grace Period
                     </p>
                   </div>
@@ -144,24 +144,23 @@ export function SecuritySection() {
 
         {/* Trust Badge */}
         <div 
-          className="mt-12 md:mt-20 text-center opacity-0 animate-fade-in"
+          className="mt-20 text-center opacity-0 animate-fade-in"
           style={{ animationDelay: "700ms", animationFillMode: "forwards" }}
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 glass-card-elevated px-6 sm:px-8 py-4 sm:py-5 rounded-2xl">
+          <div className="inline-flex items-center gap-6 glass-card-elevated px-8 py-5 rounded-2xl">
             <div className="flex items-center gap-3">
-              <Shield className="w-8 h-8 md:w-10 md:h-10 text-status-alive" />
+              <Shield className="w-10 h-10 text-status-alive" />
               <div className="text-left">
-                <p className="text-sm md:text-base font-semibold text-foreground">SOC 2 Type II Compliant</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Enterprise-grade security</p>
+                <p className="text-base font-semibold text-foreground">SOC 2 Type II Compliant</p>
+                <p className="text-sm text-muted-foreground">Enterprise-grade security certification</p>
               </div>
             </div>
-            <div className="hidden sm:block h-12 w-px bg-border/30" />
-            <div className="sm:hidden w-full h-px bg-border/30" />
+            <div className="h-12 w-px bg-border/30" />
             <div className="flex items-center gap-3">
-              <Activity className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+              <Activity className="w-10 h-10 text-primary" />
               <div className="text-left">
-                <p className="text-sm md:text-base font-semibold text-foreground">99.99% Uptime</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Always-on monitoring</p>
+                <p className="text-base font-semibold text-foreground">99.99% Uptime</p>
+                <p className="text-sm text-muted-foreground">Always-on monitoring</p>
               </div>
             </div>
           </div>

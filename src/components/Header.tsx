@@ -7,19 +7,19 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-background/80 backdrop-blur-2xl">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/30 bg-background/60 backdrop-blur-2xl">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-18 py-3 md:py-4">
+        <div className="flex items-center justify-between h-18 py-4">
           {/* Logo */}
-          <div className="flex items-center gap-2 md:gap-3">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border border-primary/20">
-              <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border border-primary/20">
+              <Shield className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <span className="font-serif font-semibold text-base md:text-lg text-foreground block leading-tight">
+              <span className="font-serif font-semibold text-lg text-foreground block leading-tight">
                 The Final Transfer
               </span>
-              <span className="hidden sm:block text-[10px] text-muted-foreground uppercase tracking-widest">
+              <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
                 Digital Legacy
               </span>
             </div>
